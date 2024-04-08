@@ -1,0 +1,4 @@
+Name: Add delimiter (---)
+Description: Adds a delimiter comment until the code margin limit
+Binding: add_delimiter
+Interactive: false
