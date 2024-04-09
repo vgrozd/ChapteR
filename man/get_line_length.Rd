@@ -4,10 +4,21 @@
 \alias{get_line_length}
 \title{Get line length}
 \usage{
-get_line_length(line.number = NULL)
+get_line_length(
+  context = NULL,
+  prim_selection = NULL,
+  line.number = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
+\item{context}{Object of class 'document_context'}
+
+\item{prim_selection}{A list, derived from context with rstudioapi::primary_selection()}
+
 \item{line.number}{A line number castable to integer}
+
+\item{verbose}{Print messages}
 }
 \value{
 Line lengt (int)
