@@ -10,14 +10,17 @@ add_delimiter <- function(colwidth=rstudioapi::readRStudioPreference("margin_col
   context = rstudioapi::getActiveDocumentContext()
   prim_selection <- rstudioapi::primary_selection(context)
   pos = context$selection[[1]]$range$end["column"]
-  n=ChapteR:::get_line_length(context=context, prim_selection=prim_selection, verbose=FALSE)
+  n=get_line_length(context=context, prim_selection=prim_selection, verbose=FALSE)
   if(is.null(colwidth)) stop("Code margin could not be read from RStudio, please specify explicitly with 'colwidth=...'")
   if(pos<=n) rstudioapi::setCursorPosition(rstudioapi::document_position(
     row=context$selection[[1]]$range$end["row"],
     column=n+1
   ))
   if (n < colwidth) {
-    if(!ChapteR:::is_last_char_whitespace(context$contents[[prim_selection$range$start["row"]]])){
+    if(
+      !is_last_char_whitespace(context$contents[[prim_selection$range$start["row"]]]) &
+        !is_last_char_same_delim(context$contents[[prim_selection$range$start["row"]]], delim)
+      ){
       rstudioapi::insertText(" ")
       n=n+1
     }
@@ -25,7 +28,10 @@ add_delimiter <- function(colwidth=rstudioapi::readRStudioPreference("margin_col
     rstudioapi::insertText("\n\n")
     if(verbose) return(message("Inserted delimiter")) else return()
   }else{
-    if(!ChapteR:::is_last_char_whitespace(context$contents[[prim_selection$range$start["row"]]])){
+    if(
+      !is_last_char_whitespace(context$contents[[prim_selection$range$start["row"]]]) &
+        !is_last_char_same_delim(context$contents[[prim_selection$range$start["row"]]], delim)
+      ){
       rstudioapi::insertText(" ")
       n=n+1
     }
