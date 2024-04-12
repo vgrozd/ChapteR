@@ -1,2 +1,2 @@
 # ChapteR
-Document formatting tools for R scripts
+Document formatting tools under RStudio 
