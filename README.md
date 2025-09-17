@@ -1,4 +1,5 @@
 # ChapteR
+<img src="https://github.com/vgrozd/BulkR/blob/main/ChapteR_Tilev2.png" width="100">
 Document formatting tools under RStudio 
 
 ### Installation 
