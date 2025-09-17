@@ -1,5 +1,5 @@
 # ChapteR
-<img src="https://github.com/vgrozd/BulkR/blob/main/BulkeR_Tilev2.png" width="100">
+<img src="https://github.com/vgrozd/BulkR/blob/main/ChapteR_Tilev1.png" width="100">
 
 ## Document formatting tools under RStudio 
 
